@@ -1,0 +1,42 @@
+{
+    "PersonalDataResource": "Datos Personales",
+
+    "avatar": "Avatar",
+    "name": "Nombre",
+    "cv": "CV",
+    "email": "Correo electrónico",
+    "about": "Sobre mí",
+
+    "CourseResource": "Curso",
+    "CourseResources": "Cursos",
+
+    "certification": "Ti",
+    "completion_year": "Año de finalización",
+
+    "EducationResource": "Formación",
+    "EducationResources": "Formaciones",
+
+    "institution": "Centro",
+
+    "ExperienceResource": "Experiencia",
+    "ExperienceResources": "Experiencias",
+
+    "position": "Posición",
+    "company": "Empresa",
+    "start_date": "Fecha de inicio",
+    "end_date": "Fecha de fin",
+    "description": "Descripción",
+
+    "ProjectResource": "Proyecto",
+    "ProjectResources": "Proyectos",
+
+    "title": "Título",
+    "image": "Imagen",
+    "website": "Sitio web",
+
+    "SoftSkillResource": "Habilidad Blanda",
+    "SoftSkillResources": "Habilidades Blandas",
+
+    "TechnicalSkillResource": "Habilidad Técnica",
+    "TechnicalSkillResources": "Habilidades Técnicas"
+}
