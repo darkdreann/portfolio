@@ -13,4 +13,8 @@ class TechnicalSkill extends Model
         'name',
         'image'
     ];
+
+    public function projects() {
+        return $this->belongsToMany(Project::class, null, 'technologies_ids', 'projects_ids');
+    }
 }

@@ -9,6 +9,8 @@ use App\Http\Controllers\PersonalDataController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SoftSkillController;
 use App\Http\Controllers\TechnicalSkillController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ErrorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,9 @@ Route::get('/courses', [CourseController::class, 'index']);
 Route::get('/educations', [EducationController::class, 'index']);
 Route::get('/experiences', [ExperienceController::class, 'index']);
 Route::get('/personal-data', [PersonalDataController::class, 'index']);
+Route::get('/personal-image', [PersonalDataController::class, 'getImage']);
 Route::get('/projects', [ProjectController::class, 'index']);
 Route::get('/soft-skills', [SoftSkillController::class, 'index']);
 Route::get('/technical-skills', [TechnicalSkillController::class, 'index']);
+Route::post('/contact-mail', [ContactController::class, 'send']);
+Route::post('/errors', [ErrorController::class, 'store']);

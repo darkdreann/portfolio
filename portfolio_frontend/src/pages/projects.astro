@@ -1,0 +1,61 @@
+---
+import lang from "../i18n/languageService";
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+import { getProjects } from '../services/project';
+
+const projects = await getProjects();
+---
+
+<Layout title={lang.project.title}>
+	<main>
+		<h1>{lang.project.projects}</h1>
+		<div>
+			{
+				projects.map(project => (
+				 	<ProjectCard project={project} />	
+				))	
+			}
+		</>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto 20vw auto 20vw;
+	}
+
+	div {
+        margin: auto 1vw auto 1vw;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 10px;
+    }
+
+	h1 {
+		color: #FFFFFF;
+		margin-top: 8vh;
+		font-size: 2.2rem;
+	}
+
+	@media only screen and (max-width: 1200px) {
+		main {
+			margin: auto 12vw auto 12vw;
+		}
+		
+	}
+	
+
+	@media only screen and (max-width: 768px) {
+		main {
+			margin: auto 5vw auto 5vw;
+		}
+
+		div {
+			grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+			gap: 15px;
+    	}
+
+	}
+</style>

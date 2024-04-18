@@ -1,0 +1,21 @@
+---
+
+interface Props {
+	svg_string: string;
+    width: string;
+    height: string;
+}
+
+const { svg_string, width, height } = Astro.props as Props;
+
+const svg = `
+    ${svg_string}
+    <style>
+        svg {
+            width: ${width};
+            height: ${height};
+        }
+    </style>
+`;
+---
+<Fragment set:html={svg} />

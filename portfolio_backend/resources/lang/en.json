@@ -1,25 +1,26 @@
 {
-    "PersonalDataResource": "Personal Data",
+    "personal_data_resource": "Personal Data",
 
     "avatar": "Avatar",
     "name": "Name",
     "cv": "CV",
     "email": "Email",
     "about": "About me",
+    "profession": "Profession",
 
-    "CourseResource": "Course",
-    "CourseResources": "Courses",
+    "course_resource": "Course",
+    "course_resources": "Courses",
 
     "certification": "Certification",
     "completion_year": "Completion year",
 
-    "EducationResource": "Education",
-    "EducationResources": "Educations",
+    "education_resource": "Education",
+    "education_resources": "Educations",
 
     "institution": "Institution",
 
-    "ExperienceResource": "Experience",
-    "ExperienceResources": "Experiences",
+    "experience_resource": "Experience",
+    "experience_resources": "Experiences",
 
     "position": "Position",
     "company": "Company",
@@ -27,16 +28,40 @@
     "end_date": "End date",
     "description": "Description",
 
-    "ProjectResource": "Project",
-    "ProjectResources": "Projects",
+    "project_resource": "Project",
+    "project_resources": "Projects",
 
     "title": "Title",
     "image": "Image",
     "website": "Website",
 
-    "SoftSkillResource": "Soft Skill",
-    "SoftSkillResources": "Soft Skills",
+    "name_tech_skill": "Technology Name",
+    "svg": "SVG HTML Resource",
+    "technologies": "Technologies",
 
-    "TechnicalSkillResource": "Technical Skill",
-    "TechnicalSkillResources": "Technical Skills"
+    "soft_skill_resource": "Soft Skill",
+    "soft_skill_resources": "Soft Skills",
+
+    "technical_skill_resource": "Technical Skill",
+    "technical_skill_resources": "Technical Skills",
+
+    "mail_failure": "The email could not be sent",
+    "mail_success": "The email has been sent successfully",
+
+    "mail_subject": "Contact from your portfolio",
+
+    "date_format": "m/d/Y",
+
+    "error": "Error",
+    "errors": "Errors",
+
+    "date": "Date",
+
+    "message": "Message",
+
+    "solved": "Solved",
+    "unsolved": "Unsolved",
+
+    "error_saved" : "Error saved successfully",
+    "error_not_saved" : "Error could not be saved"
 }

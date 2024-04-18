@@ -18,6 +18,7 @@ class PersonalDataResource extends JsonResource
             'avatar' => $this->avatar,
             'name' => $this->name,
             'email' => $this->email,
+            'profession' => $this->profession,
             'about_me' => $this->about_me,
             'github' => $this->github,
             'linkedin' => $this->linkedin,

@@ -13,12 +13,16 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
+
+use App\Models\TechnicalSkill;
+
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Placeholder;
+use Filament\Forms\Components\Select;
 
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\Column;
@@ -55,7 +59,7 @@ class ProjectResource extends Resource
                     ->label('GitHub')
                     ->maxLength(100),
 
-                    TextInput::make('youtube')
+                TextInput::make('youtube')
                     ->prefix('https://www.youtube.com/')
                     ->maxLength(100),
 
@@ -64,21 +68,39 @@ class ProjectResource extends Resource
                     ->label(__('website'))
                     ->maxLength(100),
 
-                Placeholder::make('')->hiddenLabel(),
+                Select::make('technologies')
+                    ->options(
+                        TechnicalSkill::all()->pluck('name', '_id')
+                    )
+                    ->multiple()
+                    ->label(__('technologies'))
+                    ->preload()
+                    ->maxItems(12)
+                    ->optionsLimit(50)
+                    ->createOptionForm([
+                        TextInput::make('name')
+                        ->required()
+                        ->label(__('name_tech_skill'))
+                        ->maxLength(100),
+
+                        Textarea::make('image')
+                            ->required()
+                            ->label(__('svg'))
+                            ->maxLength(6000),
+                    ])
+                    ->createOptionUsing(function (array $data): string {
+                        return TechnicalSkill::create($data)->getKey();
+                    })
+                    ->searchable(),
 
                 Textarea::make('description')
                     ->autosize()
                     ->required()
                     ->label('description')
-                    ->maxLength(1500),
+                    ->maxLength(700),
 
-            TextColumn::make('technologies')
-                ->label('Technologies')
-                ->displayUsing(function ($record) {
-                    return implode(', ', $record->technologies);
-                }),
-
-
+                
+                    
             ]);
     }
 
@@ -129,11 +151,12 @@ class ProjectResource extends Resource
 
     public static function getModelLabel(): string
     {
-        return __('ProjectResource');
+        return __('project_resource');
     }
 
     public static function getPluralModelLabel(): string
     {
-        return __('ProjectResources');
+        return __('project_resources');
     }
+
 }

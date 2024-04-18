@@ -1,0 +1,65 @@
+---
+interface Props {
+    message: string;
+    hidden_timer: number;
+}
+
+const { message, hidden_timer } = Astro.props as Props;
+---
+
+<span id="toast">{message}</span>
+
+<script define:vars={{hidden_timer}}>
+    const toast = document.getElementById("toast");
+    setTimeout(() => toast.classList.add("hidden"), hidden_timer);
+</script>
+
+<style>
+
+    #toast {
+        min-width: 30%;
+        background-color: #243647;
+        color: #fff;
+
+        text-align: center;
+
+        border-radius: 15px;
+        padding: 16px;
+
+        position: relative;
+
+        z-index: 1;
+        left: 0;
+        top: 2vh;
+
+        -webkit-animation: fadein 0.5s;
+        animation: fadein 0.5s;
+    }
+
+    #toast.hidden {
+        visibility: hidden;
+
+        -webkit-animation: fadeout 0.5s 2.5s;
+        animation: fadeout 0.5s 2.5s;
+    }
+
+    @-webkit-keyframes fadein {
+        from {bottom: 0; opacity: 0;} 
+        to {bottom: 30px; opacity: 1;}
+    }
+
+    @keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+    }
+
+    @-webkit-keyframes fadeout {
+        from {bottom: 30px; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
+    }
+
+    @keyframes fadeout {
+        from {bottom: 30px; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
+    }
+</style>

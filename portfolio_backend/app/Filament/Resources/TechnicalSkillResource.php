@@ -13,8 +13,8 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
 
 use Filament\Tables\Columns\TextColumn;
 
@@ -30,17 +30,13 @@ class TechnicalSkillResource extends Resource
             ->schema([
                 TextInput::make('name')
                     ->required()
-                    ->label(__('name'))
+                    ->label(__('name_tech_skill'))
                     ->maxLength(100),
 
-                FileUpload::make('image')
-                    ->disk('public')  
-                    ->visibility('public') 
-                    ->directory('technical_skills')  
-                    ->multiple(false) 
-                    ->acceptedFileTypes(['image/*'])
-                    ->label(__('image'))
-                    ->required(),
+                Textarea::make('image')
+                    ->required()
+                    ->label(__('svg'))
+                    ->maxLength(6000),
             ]);
     }
 
@@ -49,7 +45,7 @@ class TechnicalSkillResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label(__('name'))
+                    ->label(__('name_tech_skill'))
                     ->searchable(),
             ])
             ->filters([
@@ -83,11 +79,11 @@ class TechnicalSkillResource extends Resource
 
     public static function getModelLabel(): string
     {
-        return __('TechnicalSkillResource');
+        return __('technical_skill_resource');
     }
 
     public static function getPluralModelLabel(): string
     {
-        return __('TechnicalSkillResources');
+        return __('technical_skill_resources');
     }
 }

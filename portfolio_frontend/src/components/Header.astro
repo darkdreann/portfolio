@@ -1,0 +1,88 @@
+---
+import lang from "../i18n/languageService";
+import Sidenav from "./Sidenav.astro";
+// @ts-ignore
+import { Image } from 'astro:assets';
+
+import { RESOURCE_URL } from '../utils/constants';
+
+import { getPersonalImage } from '../services/personal_data';
+
+const currentPath = new URL(Astro.request.url).pathname.slice(1);
+const isIndex = currentPath === "";
+let imgURL = "";
+
+if(!isIndex){
+    const image = await getPersonalImage();
+    imgURL = `${RESOURCE_URL}/${image}`;
+}
+---
+
+<header class={isIndex ? "no-img":""}>
+    {
+        !isIndex &&
+            <Image 
+                src={imgURL} 
+                alt={lang.personal_data.img_alt}
+                transition:name="avatar"
+                loading="eager"
+                width="37"
+                height="39"
+                
+            />
+    }
+    <nav>
+        <a class={currentPath === "" ? "active" : ""} href="/">{lang.nav.about_me}</a>
+        <a class={currentPath === "experiences" ? "active" : ""} href="/experiences">{lang.nav.experience}</a>
+        <a class={currentPath === "educations" ? "active" : ""} href="/educations">{lang.nav.education}</a>
+        <a class={currentPath === "skills" ? "active" : ""} href="/skills">{lang.nav.skills}</a>
+        <a class={currentPath === "projects" ? "active" : ""} href="/projects">{lang.nav.projects}</a>
+        <a class={currentPath === "contact" ? "active" : ""} href="/contact">{lang.nav.contact}</a>
+    </nav>
+    <Sidenav/>
+</header>
+
+
+<style>
+    img {
+        margin-left: 3vw;
+        border-radius: 50px;
+    }
+
+    header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 7vh;
+        border-bottom: 1px dotted #243443;
+    }
+
+    .no-img{
+        justify-content: flex-end;
+    }
+
+    nav{
+        margin-right: 3vw;
+        width: auto;
+    }
+
+    a{
+        text-decoration: none;
+        color: #FFFFFF;
+        margin-left: 1.5vw;
+    }
+
+    a.active {
+        color: #546c84;
+    }
+
+    a:hover {
+        color: #3c5068;
+    }
+
+    @media only screen and (max-width: 768px) {
+		nav {
+			display: none;
+		}
+	}
+</style>

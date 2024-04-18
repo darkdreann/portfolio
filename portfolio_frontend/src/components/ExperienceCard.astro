@@ -1,0 +1,65 @@
+---
+import lang from "../i18n/languageService";
+import { dateFormatter } from "../utils/date_formatter";
+import { type Experience } from '../types/experience';
+import ExperienceIcon from "./icons/Experience.astro";
+
+interface Props {
+	experience: Experience;
+}
+
+const { experience } = Astro.props as Props;
+
+const start_date = dateFormatter.format(experience.start_date);
+const end_date = experience.end_date ? dateFormatter.format(experience.end_date) : lang.experience.no_end_date;
+---
+
+<article>
+    <ExperienceIcon class_name="experience_icon" title={lang.experience.experience_icon}/>
+    <div>
+        <h3>{experience.position}</h3>
+        <p>{experience.description}</p>
+        <p>{`${experience.company}, ${start_date} - ${end_date}`}</p>
+    </div>
+</article>
+
+<style>
+    article {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+        margin-top: 3.5vh;
+        margin-left: 0.5vw;
+    }
+    
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        margin-top: 0.2rem;
+    }
+
+    h3 {
+        color: #FFFFFF;
+        margin: 0;
+        font-weight: 450;
+    }
+
+    p{
+        color: #94ADC7;
+        margin: 0;
+        font-weight: 350;
+        font-size: medium;
+    }
+</style>
+
+<style is:global>
+    .experience_icon {
+        color: #FFFFFF;
+        background-color: #243546;
+        padding: 12px;
+        border-radius: 9px;
+        width: 25px;
+        height: 25px;
+    }
+</style>

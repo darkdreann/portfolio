@@ -188,4 +188,6 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    'FRONT_REBUILD_URL' => 'http://astro:3000/rebuild',
+
 ];

@@ -19,4 +19,13 @@ class PersonalDataController extends Controller
         return new PersonalDataResource($data);
     }
 
+    public function getImage()
+    {
+        $data = PersonalData::first();
+
+        return response()->json([
+            'image' => $data->avatar
+        ]);
+    }
+
 }

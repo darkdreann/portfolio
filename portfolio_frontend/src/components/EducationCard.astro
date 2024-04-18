@@ -1,0 +1,62 @@
+---
+import lang from "../i18n/languageService";
+import { type Education } from '../types/education';
+import EducationIcon from './icons/Education.astro';
+
+interface Props {
+	education: Education;
+}
+
+const { education } = Astro.props as Props;
+
+const educationInfo = (education.institution ? `${education.institution} - ` : '') + education.completion_year;
+---
+
+<article>
+    <EducationIcon class_name="education_icon" title={lang.education.education_icon}/>
+	<div>
+        <h3>{education.certification}</h3>
+        <p>{educationInfo}</p>
+	</div>
+</article>
+
+<style>
+    article {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+        margin-top: 3.5vh;
+        margin-left: 0.5vw;
+    }
+    
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        margin-top: 0.2rem;
+    }
+
+    h3 {
+        color: #FFFFFF;
+        margin: 0;
+        font-weight: 450;
+    }
+
+    p{
+        color: #94ADC7;
+        margin: 0;
+        font-weight: 350;
+        font-size: medium;
+    }
+</style>
+
+<style is:global>
+    .education_icon {
+        color: #FFFFFF;
+        background-color: #243546;
+        padding: 12px;
+        border-radius: 9px;
+        width: 25p;
+        height: 25px;
+    }
+</style>

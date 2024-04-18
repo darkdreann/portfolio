@@ -71,12 +71,16 @@ class PersonalDataResource extends Resource
                     ->label('LinkedIn')
                     ->maxLength(100),
 
-
                 Textarea::make('about_me')
                     ->autosize()
                     ->required()
                     ->label(__('about_me'))
                     ->maxLength(1500),
+
+                TextInput::make('profession')
+                    ->required()
+                    ->label(__('profession'))
+                    ->maxLength(100),
             ]);
     }
 
@@ -132,12 +136,12 @@ class PersonalDataResource extends Resource
 
     public static function getModelLabel(): string
     {
-        return __('PersonalDataResource');
+        return __('personal_data_resource');
     }
 
     public static function getPluralModelLabel(): string
     {
-        return __('PersonalDataResource');
+        return __('personal_data_resource');
     }
 
 

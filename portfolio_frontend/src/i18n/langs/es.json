@@ -1,0 +1,69 @@
+{
+    "nav":{
+        "about_me": "Sobre mí",
+        "experience": "Experiencia",
+        "education": "Formación",
+        "skills": "Habilidades",
+        "projects": "Proyectos",
+        "contact": "Contacto",
+        "open_nav_icon": "Icono de abrir menú de navegación",
+        "footer": "Este proyecto está licenciado bajo la licencia GPL v3. Ver el código fuente en "
+    },
+    "personal_data":{
+        "title": "sobre mí",
+        "cv_button": "Descargar CV",
+        "about_me": "Sobre mí",
+        "img_alt": "Imagen de perfil"
+    },
+    "experience":{
+        "title": "experiencia",
+        "experience": "Experiencia Laboral",
+        "no_end_date": "Actualidad",
+        "experience_icon": "Icono de experiencia laboral"
+    },
+    "education":{
+        "title": "formación",
+        "education": "Formación Académica",
+        "education_icon": "Icono de formación académica",
+        "courses": "Cursos",
+        "courses_icon": "Icono de cursos"
+    },
+    "skills":{
+        "title": "habilidades",
+        "technical_skills": "Habilidades Técnicas",
+        "soft_skills": "Habilidades Blandas",
+        "technical_skills_icon": "Icono de habilidades técnicas",
+        "soft_skills_icon": "Icono de habilidades blandas"
+    },
+    "project":{
+        "title": "proyectos",
+        "projects": "Proyectos",
+        "img_alt": "Imagen del proyecto",
+        "youtube_link": "Enlace a YouTube",
+        "github_link": "Enlace a GitHub",
+        "web_link": "Enlace a la web del proyecto"
+    },
+    "contact":{
+        "title": "contacto",
+        "contact": "Contacto",
+        "name": "Nombre",
+        "email": "Correo Electrónico",
+        "message": "Mensaje",
+        "send": "Enviar",
+        "sendResultSuccess": "Mensaje enviado correctamente",
+        "sendResultError": "No se ha podido enviar el mensaje"
+    },
+    "error":{
+        "personal_data": "No se ha podido cargar la información personal",
+        "personal_image": "No se ha podido cargar la imagen personal",
+        "experience": "No se ha podido cargar la información de experiencia laboral",
+        "education": "No se ha podido cargar la información de formación académica",
+        "tech_skills": "No se ha podido cargar la información de habilidades técnicas",
+        "soft_skills": "No se ha podido cargar la información de habilidades blandas",
+        "projects": "No se ha podido cargar la información de proyectos",
+        "mail": "No se ha podido enviar el email",
+        "courses": "No se ha podido cargar la información de cursos",
+        "title_404": "Página no encontrada",
+        "error_saving": "No se ha podido guardar la información del error"
+    }
+}

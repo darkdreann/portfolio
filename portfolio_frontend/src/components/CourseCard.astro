@@ -1,0 +1,61 @@
+---
+import lang from "../i18n/languageService";
+import { type Course } from '../types/course';
+import CourseIcon from './icons/Course.astro';
+
+interface Props {
+	course: Course;
+}
+
+const { course } = Astro.props as Props;
+
+---
+
+<article>
+    <CourseIcon class_name="course_icon" title={lang.education.courses_icon}/>
+	<div>
+        <h3>{course.certification}</h3>
+        <p>{course.completion_year}</p>
+	</div>
+</article>
+
+<style>
+    article {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+        margin-top: 3.5vh;
+        margin-left: 0.5vw;
+    }
+    
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        margin-top: 0.2rem;
+    }
+
+    h3 {
+        color: #FFFFFF;
+        margin: 0;
+        font-weight: 450;
+    }
+
+    p{
+        color: #94ADC7;
+        margin: 0;
+        font-weight: 350;
+        font-size: medium;
+    }
+</style>
+
+<style is:global>
+    .course_icon {
+        color: #FFFFFF;
+        background-color: #243546;
+        padding: 12px;
+        border-radius: 9px;
+        width: 25p;
+        height: 25px;
+    }
+</style>

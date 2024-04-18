@@ -1,0 +1,48 @@
+---
+import lang from "../i18n/languageService";
+import Layout from '../layouts/Layout.astro';
+// @ts-ignore
+import img from '../assets/404.svg';
+// @ts-ignore
+import { Image } from 'astro:assets';
+
+---
+
+<Layout title={lang.error.title_404}>
+	<main>
+		<Image 
+			src={img}
+			alt="not found img"
+			loading="eager"
+    	/>
+	</main>
+</Layout>
+
+<style>
+	img {
+		width: 100%;
+		height: auto;
+	}
+
+	main {
+		margin: auto 23vw auto 23vw;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	
+	@media only screen and (max-width: 768px) {
+		main {
+			margin: auto 7vw auto 7vw;
+		}
+
+		form {
+			width: 90%;
+		}
+
+		h1 {
+			width: 92%;
+		}
+	}
+
+</style>

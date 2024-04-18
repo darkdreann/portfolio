@@ -1,0 +1,123 @@
+---
+import lang from "../i18n/languageService";
+
+const currentPath = new URL(Astro.request.url).pathname.slice(1);
+---
+
+<script>
+    const button = document.getElementById("open_nav_icon");
+    const nav = document.getElementById("sidenav");
+    
+    button.addEventListener("click", (event) => {
+        event.stopPropagation();
+        if(button.classList.contains("open")){
+            nav.style.width = "0";
+            button.classList.remove("open");
+        }else{
+            nav.style.width = "250px";
+            button.classList.add("open");
+        }
+    });
+
+    document.addEventListener('click', function(event) {
+        const target = event.target as HTMLElement;
+        if (!nav.contains(target) && button.classList.contains("open")) {
+            nav.style.width = '0';
+            button.classList.remove("open");
+        }
+    });
+
+    
+
+</script>
+
+<div>
+    <nav id="sidenav">
+        <a class={currentPath === "" ? "active" : ""} href="/">{lang.nav.about_me}</a>
+        <a class={currentPath === "experiences" ? "active" : ""} href="/experiences">{lang.nav.experience}</a>
+        <a class={currentPath === "educations" ? "active" : ""} href="/educations">{lang.nav.education}</a>
+        <a class={currentPath === "skills" ? "active" : ""} href="/skills">{lang.nav.skills}</a>
+        <a class={currentPath === "projects" ? "active" : ""} href="/projects">{lang.nav.projects}</a>
+        <a class={currentPath === "contact" ? "active" : ""} href="/contact">{lang.nav.contact}</a>
+    </nav>
+    <span id="open_nav_icon"></span>
+</div>
+
+<style>
+    div {
+        display: none;
+    }
+
+    @media only screen and (max-width: 768px) {
+		div {
+			display: block;
+		}
+	}
+
+    nav {
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 5px;
+        
+
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        background-color: #121921;
+        border: #3c5068 solid 1px;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+
+    }
+
+    nav > a:first-child {
+        margin-top: 7vh;
+    }
+
+    a {
+        text-decoration: none;
+        color: #FFFFFF;
+
+        width: 60%;
+
+        font-size: 1.3rem;
+    }
+
+    a:hover {
+        color: #3c5068;
+    }
+
+    a.active {
+        color: #546c84;
+    }
+
+
+    span {
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+        z-index: 2;
+        position: relative;
+      
+    }
+
+    span:before {
+        color: #FFFFFF;
+        content: '\2630';
+        transition: 0.4s;
+    }
+
+    span.open:before {
+        color: #FFFFFF;
+        content: '\2715';
+        transition: 0.4s;
+    }
+</style>

@@ -83,11 +83,11 @@ class CourseResource extends Resource
 
     public static function getModelLabel(): string
     {
-        return __('CourseResource');
+        return __('course_resource');
     }
 
     public static function getPluralModelLabel(): string
     {
-        return __('CourseResources');
+        return __('course_resources');
     }
 }

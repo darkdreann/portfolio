@@ -1,0 +1,122 @@
+---
+import lang from "../i18n/languageService";
+import Layout from '../layouts/Layout.astro';
+import { type Mail } from "../types/mail";
+import { sendMail } from "../services/mail";
+import Toast from "../components/Toast.astro";
+
+export const prerender = false;
+
+let sended = false;
+let resultMsg = "";
+
+if (Astro.request.method === "POST") {
+	sended = true;
+
+	try {
+		const data = await Astro.request.formData();
+		const name = data.get("name");
+		const email = data.get("email");
+		const message = data.get("message");
+
+		const mail: Mail = {
+			name,
+			email,
+			message
+		}
+
+		const result = await sendMail(mail);
+
+		resultMsg = result ? lang.contact.sendResultSuccess : lang.contact.sendResultError;
+
+
+		console.log(result);
+		console.log(resultMsg);
+
+	} catch (error) {
+		if (error instanceof Error) {
+			resultMsg = lang.contact.sendResultError;
+		}
+	}
+}
+---
+
+<Layout title={lang.contact.title}>
+	<main>
+		<h1>{lang.contact.contact}</h1>
+		<form method="POST">
+			<input type="text" name="name" required maxlength="30" placeholder={lang.contact.name} />
+			<input type="email" name="email" required maxlength="30" placeholder={lang.contact.email} />
+			<textarea name="message" rows="4" cols="50" required maxlength="1500" placeholder={lang.contact.message} ></textarea>
+			<button>{lang.contact.send}</button>
+		</form>
+		{
+			sended && <Toast message={resultMsg} hidden_timer={3000} />
+		}
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto 23vw auto 23vw;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	form {
+		width: 80%;
+		display: flex;
+		flex-direction: column;
+		align-items: end;
+		gap: 1rem;
+	}
+
+	h1 {
+		color: #FFFFFF;
+		margin-top: 8vh;
+		font-size: 2.2rem;
+		width: 82%;
+	}
+	
+	@media only screen and (max-width: 768px) {
+		main {
+			margin: auto 7vw auto 7vw;
+		}
+
+		form {
+			width: 90%;
+		}
+
+		h1 {
+			width: 92%;
+		}
+	}
+
+	input, textarea, button {
+		border: none;
+		color: #FFFFFF;
+		border-radius: 12px;
+		padding: 1rem;
+		box-sizing: border-box;
+	}
+
+	input, textarea  {
+		background-color: #243647;
+		width: 100%;
+	}
+
+	button {
+		background-color: #1466b8;
+		width: 30%;
+		font-size: 1.2rem;
+		padding: 0.8rem;
+	}
+
+	textarea {
+		resize: vertical;
+	}
+
+	
+
+</style>

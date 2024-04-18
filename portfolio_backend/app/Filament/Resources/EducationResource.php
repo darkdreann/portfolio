@@ -89,11 +89,11 @@ class EducationResource extends Resource
 
     public static function getModelLabel(): string
     {
-        return __('EducationResource');
+        return __('education_resource');
     }
 
     public static function getPluralModelLabel(): string
     {
-        return __('EducationResources');
+        return __('education_resources');
     }
 }

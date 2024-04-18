@@ -57,13 +57,14 @@ class ExperienceResource extends Resource
 
     public static function table(Table $table): Table
     {
-        $dateFormat = config('filament_resource.date_format');
+        $dateFormat = __('date_format');
 
         return $table
             ->columns([
                 TextColumn::make('position')
                     ->label(__('position'))
                     ->searchable(),
+                    
                 TextColumn::make('company')
                     ->label(__('company'))
                     ->searchable(),
@@ -110,11 +111,11 @@ class ExperienceResource extends Resource
 
     public static function getModelLabel(): string
     {
-        return __('ExperienceResource');
+        return __('experience_resource');
     }
 
     public static function getPluralModelLabel(): string
     {
-        return __('ExperienceResources');
+        return __('experience_resources');
     }
 }

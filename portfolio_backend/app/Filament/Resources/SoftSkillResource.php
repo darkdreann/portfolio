@@ -73,11 +73,11 @@ class SoftSkillResource extends Resource
 
     public static function getModelLabel(): string
     {
-        return __('SoftSkillResource');
+        return __('soft_skill_resource');
     }
 
     public static function getPluralModelLabel(): string
     {
-        return __('SoftSkillResources');
+        return __('soft_skill_resources');
     }
 }
