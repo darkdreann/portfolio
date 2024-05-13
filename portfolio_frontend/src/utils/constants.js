@@ -6,8 +6,8 @@ export const GITHUB_URL = 'https://github.com';
 
 export const LINKEDIN_URL = 'https://www.linkedin.com/in';
 
-export const PROJECT_LINK = 'https://www.placeholder.com';
+export const PROJECT_LINK = 'https://github.com/darkdreann/portfolio';
 
-export const RESOURCE_URL = import.meta.env.RESOURCE_URL;
+export const RESOURCE_URL = import.meta.env?.RESOURCE_URL || process.env?.RESOURCE_URL;
 
-export const LANGUAGE_CHOSEN = import.meta.env.LANG.toLowerCase();
+export const LANGUAGE_CHOSEN = import.meta.env?.LANG.toLowerCase() || process.env?.LANG.toLowerCase();

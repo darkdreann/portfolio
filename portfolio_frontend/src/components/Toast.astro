@@ -1,17 +1,21 @@
 ---
+/**
+ * @param {string} message - The message to display in the toast.
+ */
 interface Props {
     message: string;
-    hidden_timer: number;
 }
 
-const { message, hidden_timer } = Astro.props as Props;
+const { message } = Astro.props as Props;
 ---
 
 <span id="toast">{message}</span>
 
-<script define:vars={{hidden_timer}}>
+<script>
+    // Hide the toast after 3 seconds.
+    const hidden_timer = 3000;
     const toast = document.getElementById("toast");
-    setTimeout(() => toast.classList.add("hidden"), hidden_timer);
+    setTimeout(() => toast?.classList.add("hidden"), hidden_timer);
 </script>
 
 <style>

@@ -1,0 +1,50 @@
+version: "3.9"
+
+services:
+  laravel:
+    container_name: laravel
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: dockerfiles/Dockerfile.laravel
+    volumes:
+      - laravel_files:/var/www/html/storage/app/public
+    depends_on:
+      - mongo
+    env_file:
+      - .env.laravel
+
+  mongo:
+    container_name: mongo
+    restart: unless-stopped
+    image: mongo
+    volumes:
+      - mongo_data:/data/db
+    env_file:
+      - .env.mongo
+
+  astro:
+    container_name: astro
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: dockerfiles/Dockerfile.astro
+    volumes:
+      - astro_dist:/app/dist
+    depends_on:
+      - laravel
+    env_file:
+      - .env.astro
+
+  tunnel:
+    container_name: cloudflared-tunnel
+    image: cloudflare/cloudflared
+    restart: unless-stopped
+    command: tunnel run
+    env_file:
+      - .env.cloudflare
+
+volumes:
+  laravel_files:
+  mongo_data:
+  astro_dist:

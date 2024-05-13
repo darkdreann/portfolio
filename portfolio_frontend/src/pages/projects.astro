@@ -2,7 +2,6 @@
 import lang from "../i18n/languageService";
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-
 import { getProjects } from '../services/project';
 
 const projects = await getProjects();
@@ -23,11 +22,11 @@ const projects = await getProjects();
 
 <style>
 	main {
-		margin: auto 20vw auto 20vw;
+		margin: 0 20vw auto 20vw;
 	}
 
 	div {
-        margin: auto 1vw auto 1vw;
+        margin: 0 1vw auto 1vw;
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
         gap: 10px;
@@ -41,7 +40,7 @@ const projects = await getProjects();
 
 	@media only screen and (max-width: 1200px) {
 		main {
-			margin: auto 12vw auto 12vw;
+			margin: 0 12vw auto 12vw;
 		}
 		
 	}

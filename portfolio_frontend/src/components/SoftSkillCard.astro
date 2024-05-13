@@ -3,14 +3,16 @@ import lang from "../i18n/languageService";
 import { type SoftSkill } from '../types/soft_skill';
 import SoftSkillIcon from './icons/SoftSkill.astro';
 
+/**
+ * @type {SoftSkill} soft_skill - The soft skill to display
+
+ */
 interface Props {
 	soft_skill: SoftSkill;
 }
 
 const { soft_skill: softSkill } = Astro.props as Props;
 ---
-
-
 
 <article>
     <SoftSkillIcon class_name="soft_skill_icon" title={lang.skills.soft_skill_icon}/>

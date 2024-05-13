@@ -32,8 +32,8 @@
         "title": "skills",
         "technical_skills": "Technical skills",
         "soft_skills": "Soft skills",
-        "technical_skills_icon": "Technical skill icon",
-        "soft_skills_icon": "Soft skill icon"
+        "technical_skill_icon": "Technical skill icon",
+        "soft_skill_icon": "Soft skill icon"
     },
     "project":{
         "title": "projects",
@@ -60,10 +60,12 @@
         "education": "An error occurred while loading education data",
         "tech_skills": "An error occurred while loading technical skills data",
         "soft_skills": "An error occurred while loading soft skills data",
-        "projects": "An error occurred while loading project data",
+        "project": "An error occurred while loading project data",
         "mail": "An error occurred while sending the email",
         "courses": "An error occurred while loading course data",
         "title_404": "Page not found",
-        "error_saving": "An error occurred while saving the error information"
+        "image_404_alt": "404 image",
+        "error_saving": "An error occurred while saving the error information",
+        "rebuild": "An error occurred while rebuilding the page"
     }
 }

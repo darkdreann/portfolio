@@ -1,6 +1,7 @@
 ---
 import lang from "../i18n/languageService";
 
+// Get the current path
 const currentPath = new URL(Astro.request.url).pathname.slice(1);
 ---
 
@@ -8,8 +9,11 @@ const currentPath = new URL(Astro.request.url).pathname.slice(1);
     const button = document.getElementById("open_nav_icon");
     const nav = document.getElementById("sidenav");
     
-    button.addEventListener("click", (event) => {
+    // Open and close the navigation
+    button?.addEventListener("click", (event) => {
         event.stopPropagation();
+        if(button === null || nav === null) return;
+
         if(button.classList.contains("open")){
             nav.style.width = "0";
             button.classList.remove("open");
@@ -19,7 +23,10 @@ const currentPath = new URL(Astro.request.url).pathname.slice(1);
         }
     });
 
+    // Close the navigation when clicking outside of it
     document.addEventListener('click', function(event) {
+        if(button === null || nav === null) return;
+
         const target = event.target as HTMLElement;
         if (!nav.contains(target) && button.classList.contains("open")) {
             nav.style.width = '0';
@@ -62,7 +69,7 @@ const currentPath = new URL(Astro.request.url).pathname.slice(1);
 
         gap: 5px;
         
-
+        margin-top: 60px;
         height: 100%;
         width: 0;
         position: fixed;
@@ -73,7 +80,7 @@ const currentPath = new URL(Astro.request.url).pathname.slice(1);
         border: #3c5068 solid 1px;
         overflow-x: hidden;
         transition: 0.5s;
-        padding-top: 60px;
+        
 
     }
 

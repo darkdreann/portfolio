@@ -1,6 +1,11 @@
 ---
 import { ButtonColor } from '../enums/button_color';
 
+/**
+ * @param text The text to display on the button
+ * @param link The link to navigate to when the button is clicked
+ * @param color The color to change to when the button is hovered over
+ */
 interface Props {
 	text: string;
     link: string;
@@ -8,12 +13,11 @@ interface Props {
 }
 
 const { text, link, color } = Astro.props;
-const hoverColor = (color === ButtonColor.Light) ? ButtonColor.Dark : ButtonColor.Light;
 ---
 
 <a href={link} target="_blank">{text}</a>
 
-<style define:vars={{color, hoverColor}}>
+<style define:vars={{color}}>
     a {
         text-decoration: none;
         color: #FFFFFF;

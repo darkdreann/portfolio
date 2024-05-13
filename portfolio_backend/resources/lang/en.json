@@ -5,7 +5,7 @@
     "name": "Name",
     "cv": "CV",
     "email": "Email",
-    "about": "About me",
+    "about_me": "About me",
     "profession": "Profession",
 
     "course_resource": "Course",
@@ -63,5 +63,7 @@
     "unsolved": "Unsolved",
 
     "error_saved" : "Error saved successfully",
-    "error_not_saved" : "Error could not be saved"
+    "error_not_saved" : "Error could not be saved",
+
+    "resource_not_found": "Resource not found"
 }

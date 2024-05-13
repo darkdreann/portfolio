@@ -3,7 +3,6 @@ import lang from "../i18n/languageService";
 import Layout from '../layouts/Layout.astro';
 import TechnicalSkillCard from '../components/TechnicalSkillCard.astro';
 import SoftSkillCard from '../components/SoftSkillCard.astro';
-
 import { getTechnicalSkills } from '../services/technical_skills';
 import { getSoftSkills } from '../services/soft_skills';
 
@@ -34,7 +33,7 @@ const softSkills = await getSoftSkills();
 
 <style>
 	main {
-		margin: auto 20vw auto 20vw;
+		margin: 0 20vw auto 20vw;
 
 	}
 
@@ -65,13 +64,13 @@ const softSkills = await getSoftSkills();
 
     @media only screen and (max-width: 1200px) {
 		main {
-			margin: auto 12vw auto 12vw;
+			margin: 0 12vw auto 12vw;
 		}
 	}
 
 	@media only screen and (max-width: 768px) {
 		main {
-			margin: auto 5vw auto 5vw;
+			margin: 0 5vw auto 5vw;
 		}
 	}
 </style>

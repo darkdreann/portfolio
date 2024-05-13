@@ -7,15 +7,18 @@ import Youtube from "./icons/Youtube.astro";
 import Website from "./icons/Website.astro";
 // @ts-ignore
 import { Image } from 'astro:assets';
-
 import { YOUTUBE_URL, GITHUB_URL, RESOURCE_URL } from '../utils/constants';
 
+/**
+ * @type {Project} project - The project to be displayed
+ */
 interface Props {
 	project: Project;
 }
 
 const { project } = Astro.props as Props;
 
+// format image and links URLs
 const imgURL: string = `${RESOURCE_URL}/${project.image}`;
 const imgAlt: string = `${lang.project.img_alt} ${project.title}`;
 const youtubeURL: string = `${YOUTUBE_URL}${project.youtube}`;

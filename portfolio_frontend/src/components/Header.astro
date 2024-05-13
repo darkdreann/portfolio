@@ -3,24 +3,26 @@ import lang from "../i18n/languageService";
 import Sidenav from "./Sidenav.astro";
 // @ts-ignore
 import { Image } from 'astro:assets';
-
 import { RESOURCE_URL } from '../utils/constants';
-
 import { getPersonalImage } from '../services/personal_data';
 
+export const prerender = true;
+
+// get current path and check if it is the index page
 const currentPath = new URL(Astro.request.url).pathname.slice(1);
 const isIndex = currentPath === "";
 let imgURL = "";
 
+// get personal image if it is not the index page
 if(!isIndex){
     const image = await getPersonalImage();
-    imgURL = `${RESOURCE_URL}/${image}`;
+    imgURL = image ? `${RESOURCE_URL}/${image}` : "";
 }
 ---
 
-<header class={isIndex ? "no-img":""}>
+<header class={isIndex || !imgURL ? "no-img" : ""}>
     {
-        !isIndex &&
+        (!isIndex && imgURL) &&
             <Image 
                 src={imgURL} 
                 alt={lang.personal_data.img_alt}
@@ -53,7 +55,7 @@ if(!isIndex){
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 7vh;
+        height: 60px;
         border-bottom: 1px dotted #243443;
     }
 
@@ -84,5 +86,9 @@ if(!isIndex){
 		nav {
 			display: none;
 		}
+
+        header {
+            height: auto;
+        }
 	}
 </style>

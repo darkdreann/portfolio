@@ -1,7 +1,11 @@
-import { chosenLang } from "../i18n/languageService";
+import { LANGUAGE_CHOSEN } from '../utils/constants';
 
+/**
+ * Function to format a date
+ * @param {Date} date - Date to format
+ */
 export const dateFormatter = new Intl.DateTimeFormat(
-        chosenLang, 
+        LANGUAGE_CHOSEN, 
         { 
             month: 'long', 
             year: 'numeric' 

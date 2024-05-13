@@ -1,13 +1,15 @@
 {
   "name": "portfolio",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro dev --host",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "rebuild": "tsx src/webhooks/rebuild.ts",
+    "start_server": "pnpm run build && (pnpm run rebuild &) && node start_server.js"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.9",
@@ -15,6 +17,10 @@
     "@fontsource-variable/sofia-sans": "^5.0.13",
     "astro": "^4.5.5",
     "express": "^4.19.2",
-    "typescript": "^5.4.2"
-  }
+    "typescript": "^5.4.2",
+    "sharp": "^0.29.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13"
+  }  
 }

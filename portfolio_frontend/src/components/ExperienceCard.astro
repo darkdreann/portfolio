@@ -4,22 +4,33 @@ import { dateFormatter } from "../utils/date_formatter";
 import { type Experience } from '../types/experience';
 import ExperienceIcon from "./icons/Experience.astro";
 
+/**
+ * @type {Experience} experience object containing the experience details
+ */
 interface Props {
 	experience: Experience;
 }
 
 const { experience } = Astro.props as Props;
 
-const start_date = dateFormatter.format(experience.start_date);
-const end_date = experience.end_date ? dateFormatter.format(experience.end_date) : lang.experience.no_end_date;
+// Split the description by new line to create a list of paragraphs
+const descriptionList = experience.description.split('\n');
+
+// Format the start and end date of the experience
+const startDate = dateFormatter.format(experience.start_date);
+const endDate = experience.end_date ? dateFormatter.format(experience.end_date) : lang.experience.no_end_date;
 ---
 
 <article>
     <ExperienceIcon class_name="experience_icon" title={lang.experience.experience_icon}/>
     <div>
         <h3>{experience.position}</h3>
-        <p>{experience.description}</p>
-        <p>{`${experience.company}, ${start_date} - ${end_date}`}</p>
+        {
+            descriptionList.map((description) => (
+                <p>{description}</p>
+            ))
+        }
+        <p>{`${experience.company}, ${startDate} - ${endDate}`}</p>
     </div>
 </article>
 

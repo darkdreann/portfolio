@@ -1,0 +1,39 @@
+FROM php:8.2-fpm
+
+WORKDIR /var/www/html
+
+RUN apt-get update && apt-get install -y \
+    git \
+    unzip \
+    libzip-dev \
+    libicu-dev \
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install zip pdo intl
+
+RUN apt-get install -y libcurl4-openssl-dev pkg-config libssl-dev
+
+RUN pecl install swoole mongodb \
+    && docker-php-ext-enable swoole mongodb \
+    && docker-php-ext-install pcntl
+
+RUN pecl config-set php_ini /etc/php.ini
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+COPY ./portfolio_backend .
+
+COPY .env.laravel .env
+
+RUN composer update
+
+RUN composer install
+
+RUN composer require laravel/octane spiral/roadrunner
+
+RUN php artisan octane:install --server="swoole"
+
+RUN php artisan storage:link
+
+RUN php artisan optimize
+
+CMD php artisan octane:start --server="swoole" --host=0.0.0.0 --port=8000

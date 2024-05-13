@@ -5,13 +5,13 @@
     "name": "Nombre",
     "cv": "CV",
     "email": "Correo electrónico",
-    "about": "Sobre mí",
+    "about_me": "Sobre mí",
     "profession": "Titulo profesional",
 
     "course_resource": "Curso",
     "course_resources": "Cursos",
 
-    "certification": "Ti",
+    "certification": "Titulación",
     "completion_year": "Año de finalización",
 
     "education_resource": "Formación",
@@ -63,5 +63,7 @@
     "unsolved": "Sin resolver",
 
     "error_saved" : "Error guardado",
-    "error_not_saved" : "No se pudo guardar el error"
+    "error_not_saved" : "No se pudo guardar el error",
+
+    "resource_not_found": "Recurso no encontrado"
 }

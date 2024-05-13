@@ -5,20 +5,24 @@ import { ButtonColor } from '../enums/button_color';
 // @ts-ignore
 import { Image } from 'astro:assets';
 import Button from '../components/Button.astro';
-
 import { RESOURCE_URL, GITHUB_URL, LINKEDIN_URL } from '../utils/constants';
 
+/**
+ * @param {PersonalData} data - Personal data of the user
+ */
 interface Props {
 	data: PersonalData;
 }
 
 const { data } = Astro.props as Props;
 
+// format image and links
 const imgURL: string = `${RESOURCE_URL}/${data.avatar}`;
 const cvLink: string = `${RESOURCE_URL}/${data.cv}`;
 const linkedinLink: string = `${LINKEDIN_URL}/${data.linkedin}`;
 const githubLink: string = `${GITHUB_URL}/${data.github}`;
 
+// split about me text into paragraphs
 const about = data.about_me.split('\n');
 ---
 
@@ -55,6 +59,7 @@ const about = data.about_me.split('\n');
     
     img {
         border-radius: 15px;
+        object-fit: cover;
     }
 
     div {
@@ -88,8 +93,15 @@ const about = data.about_me.split('\n');
     }
 
     .about {
+        width: 100%;
         margin: 6vh 6vw auto 6vw;
     }
+
+    @media only screen and (max-width: 1400px) {
+		.about {
+			width: 80%;
+		}
+	}
 
     .about_title {
         width: 100%;

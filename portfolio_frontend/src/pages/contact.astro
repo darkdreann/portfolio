@@ -13,31 +13,22 @@ let resultMsg = "";
 if (Astro.request.method === "POST") {
 	sended = true;
 
-	try {
-		const data = await Astro.request.formData();
-		const name = data.get("name");
-		const email = data.get("email");
-		const message = data.get("message");
+	// get form data from request
+	const data = await Astro.request.formData();
+	const name = data.get("name") as string;
+	const email = data.get("email") as string;
+	const message = data.get("message") as string;
 
-		const mail: Mail = {
-			name,
-			email,
-			message
-		}
-
-		const result = await sendMail(mail);
-
-		resultMsg = result ? lang.contact.sendResultSuccess : lang.contact.sendResultError;
-
-
-		console.log(result);
-		console.log(resultMsg);
-
-	} catch (error) {
-		if (error instanceof Error) {
-			resultMsg = lang.contact.sendResultError;
-		}
+	const mail: Mail = {
+		name,
+		email,
+		message
 	}
+
+	const result = await sendMail(mail);
+
+	// set result message
+	resultMsg = result ? lang.contact.sendResultSuccess : lang.contact.sendResultError;
 }
 ---
 
@@ -51,14 +42,14 @@ if (Astro.request.method === "POST") {
 			<button>{lang.contact.send}</button>
 		</form>
 		{
-			sended && <Toast message={resultMsg} hidden_timer={3000} />
+			sended && <Toast message={resultMsg} />
 		}
 	</main>
 </Layout>
 
 <style>
 	main {
-		margin: auto 23vw auto 23vw;
+		margin: 0 23vw auto 23vw;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -81,7 +72,7 @@ if (Astro.request.method === "POST") {
 	
 	@media only screen and (max-width: 768px) {
 		main {
-			margin: auto 7vw auto 7vw;
+			margin: 0 7vw auto 7vw;
 		}
 
 		form {

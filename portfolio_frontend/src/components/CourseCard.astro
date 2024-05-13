@@ -3,12 +3,14 @@ import lang from "../i18n/languageService";
 import { type Course } from '../types/course';
 import CourseIcon from './icons/Course.astro';
 
+/**
+ * @param {Course} course course object containing certification and completion year
+ */
 interface Props {
 	course: Course;
 }
 
 const { course } = Astro.props as Props;
-
 ---
 
 <article>

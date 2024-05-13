@@ -4,6 +4,7 @@ namespace App\Models;
 
 use MongoDB\Laravel\Eloquent\Model;
 
+
 class Course extends Model
 {
     protected $connection = 'mongodb';

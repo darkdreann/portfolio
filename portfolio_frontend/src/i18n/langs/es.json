@@ -32,8 +32,8 @@
         "title": "habilidades",
         "technical_skills": "Habilidades Técnicas",
         "soft_skills": "Habilidades Blandas",
-        "technical_skills_icon": "Icono de habilidades técnicas",
-        "soft_skills_icon": "Icono de habilidades blandas"
+        "technical_skill_icon": "Icono de habilidades técnicas",
+        "soft_skill_icon": "Icono de habilidades blandas"
     },
     "project":{
         "title": "proyectos",
@@ -60,10 +60,12 @@
         "education": "No se ha podido cargar la información de formación académica",
         "tech_skills": "No se ha podido cargar la información de habilidades técnicas",
         "soft_skills": "No se ha podido cargar la información de habilidades blandas",
-        "projects": "No se ha podido cargar la información de proyectos",
+        "project": "No se ha podido cargar la información de proyectos",
         "mail": "No se ha podido enviar el email",
         "courses": "No se ha podido cargar la información de cursos",
         "title_404": "Página no encontrada",
-        "error_saving": "No se ha podido guardar la información del error"
+        "image_404_alt": "Imagen de error 404",
+        "error_saving": "No se ha podido guardar la información del error",
+        "rebuild": "No se ha podido reconstruir la página"
     }
 }

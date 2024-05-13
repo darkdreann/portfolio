@@ -3,12 +3,16 @@ import lang from "../i18n/languageService";
 import { type Education } from '../types/education';
 import EducationIcon from './icons/Education.astro';
 
+/**
+ * @param {Education} education - Education object containing the education details
+ */
 interface Props {
 	education: Education;
 }
 
 const { education } = Astro.props as Props;
 
+// Format the education information to display in the UI
 const educationInfo = (education.institution ? `${education.institution} - ` : '') + education.completion_year;
 ---
 
