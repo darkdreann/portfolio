@@ -1,0 +1,23 @@
+---
+import lang from "../i18n/languageService";
+import Layout from '../layouts/Layout.astro';
+import PersonalCard from '../components/PersonalCard.astro';
+import { getPersonalData } from '../services/personal_data';
+
+const data = await getPersonalData();
+---
+
+<Layout title={lang.personal_data.title}>
+	<main>
+		{
+			data && <PersonalCard data={data} />
+		}
+	</main>
+</Layout>
+
+<style>
+	main {
+		display: flex;
+		justify-content: center;
+	}
+</style>

@@ -1,0 +1,69 @@
+{
+    "personal_data_resource": "Personal Data",
+
+    "avatar": "Avatar",
+    "name": "Name",
+    "cv": "CV",
+    "email": "Email",
+    "about_me": "About me",
+    "profession": "Profession",
+
+    "course_resource": "Course",
+    "course_resources": "Courses",
+
+    "certification": "Certification",
+    "completion_year": "Completion year",
+
+    "education_resource": "Education",
+    "education_resources": "Educations",
+
+    "institution": "Institution",
+
+    "experience_resource": "Experience",
+    "experience_resources": "Experiences",
+
+    "position": "Position",
+    "company": "Company",
+    "start_date": "Start date",
+    "end_date": "End date",
+    "description": "Description",
+
+    "project_resource": "Project",
+    "project_resources": "Projects",
+
+    "title": "Title",
+    "image": "Image",
+    "website": "Website",
+
+    "name_tech_skill": "Technology Name",
+    "svg": "SVG HTML Resource",
+    "technologies": "Technologies",
+
+    "soft_skill_resource": "Soft Skill",
+    "soft_skill_resources": "Soft Skills",
+
+    "technical_skill_resource": "Technical Skill",
+    "technical_skill_resources": "Technical Skills",
+
+    "mail_failure": "The email could not be sent",
+    "mail_success": "The email has been sent successfully",
+
+    "mail_subject": "Contact from your portfolio",
+
+    "date_format": "m/d/Y",
+
+    "error": "Error",
+    "errors": "Errors",
+
+    "date": "Date",
+
+    "message": "Message",
+
+    "solved": "Solved",
+    "unsolved": "Unsolved",
+
+    "error_saved" : "Error saved successfully",
+    "error_not_saved" : "Error could not be saved",
+
+    "resource_not_found": "Resource not found"
+}

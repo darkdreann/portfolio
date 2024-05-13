@@ -1,0 +1,69 @@
+{
+    "personal_data_resource": "Datos Personales",
+
+    "avatar": "Avatar",
+    "name": "Nombre",
+    "cv": "CV",
+    "email": "Correo electrónico",
+    "about_me": "Sobre mí",
+    "profession": "Titulo profesional",
+
+    "course_resource": "Curso",
+    "course_resources": "Cursos",
+
+    "certification": "Titulación",
+    "completion_year": "Año de finalización",
+
+    "education_resource": "Formación",
+    "education_resources": "Formaciones",
+
+    "institution": "Centro",
+
+    "experience_resource": "Experiencia",
+    "experience_resources": "Experiencias",
+
+    "position": "Posición",
+    "company": "Empresa",
+    "start_date": "Fecha de inicio",
+    "end_date": "Fecha de fin",
+    "description": "Descripción",
+
+    "project_resource": "Proyecto",
+    "project_resources": "Proyectos",
+
+    "title": "Título",
+    "image": "Imagen",
+    "website": "Sitio web",
+
+    "name_tech_skill": "Nombre Tecnología", 
+    "svg": "Recurso SVG HTML",
+    "technologies": "Tecnologías",
+
+    "soft_skill_resource": "Habilidad Blanda",
+    "soft_skill_resources": "Habilidades Blandas",
+
+    "technical_skill_resource": "Habilidad Técnica",
+    "technical_skill_resources": "Habilidades Técnicas",
+
+    "mail_failure": "No se pudo enviar el correo electrónico",
+    "mail_success": "Correo electrónico enviado con éxito",
+
+    "mail_subject": "Contacto desde tu portfolio",
+
+    "date_format": "d/m/Y",
+
+    "error": "Error",
+    "errors": "Errores",
+
+    "date": "Fecha",
+
+    "message": "Mensaje",
+
+    "solved": "Resuelto",
+    "unsolved": "Sin resolver",
+
+    "error_saved" : "Error guardado",
+    "error_not_saved" : "No se pudo guardar el error",
+
+    "resource_not_found": "Recurso no encontrado"
+}

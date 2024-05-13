@@ -1,0 +1,29 @@
+---
+import lang from "../i18n/languageService";
+import { PROJECT_LINK } from '../utils/constants';
+---
+
+<footer>
+    <p>{lang.nav.footer}<a href={PROJECT_LINK}>GitHub</a>.</p>
+</footer>
+  
+
+<style>
+    footer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px dotted #243443;
+        margin-top: auto;
+    }
+
+    p {
+        color: #FFFFFF;
+    }
+
+    a{
+        text-decoration: none;
+        color: #FFFFFF;
+        font-weight: bold;
+    }
+</style>

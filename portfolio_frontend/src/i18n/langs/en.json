@@ -1,0 +1,71 @@
+{
+    "nav":{
+        "about_me": "About me",
+        "experience": "Experience",
+        "education": "Education",
+        "skills": "Skills",
+        "projects": "Projects",
+        "contact": "Contact",
+        "open_nav_icon": "Open navigation icon",
+        "footer": "This project is licensed under the GPL v3 license. View the source code at "
+    },
+    "personal_data":{
+        "title": "about me",
+        "cv_button": "Download CV",
+        "about_me": "About me",
+        "img_alt": "Profile picture"
+    },
+    "experience":{
+        "title": "experience",
+        "experience": "Experiences",
+        "no_end_date": "Present",
+        "experience_icon": "Experience icon"
+    },
+    "education":{
+        "title": "education",
+        "education": "Educations",
+        "courses": "Courses",
+        "education_icon": "Education icon",
+        "courses_icon": "Course icon"
+    },
+    "skills":{
+        "title": "skills",
+        "technical_skills": "Technical skills",
+        "soft_skills": "Soft skills",
+        "technical_skill_icon": "Technical skill icon",
+        "soft_skill_icon": "Soft skill icon"
+    },
+    "project":{
+        "title": "projects",
+        "projects": "Projects",
+        "img_alt": "Project image",
+        "youtube_link": "YouTube link",
+        "github_link": "GitHub link",
+        "web_link": "Project website link"
+    },
+    "contact":{
+        "title": "contact",
+        "contact": "Contact me",
+        "name": "Name",
+        "email": "Email",
+        "message": "Message",
+        "send": "Send",
+        "sendResultSuccess": "Message sent successfully",
+        "sendResultError": "An error occurred while sending the message"
+    },
+    "error":{
+        "personal_data": "An error occurred while loading personal data",
+        "personal_image": "An error occurred while loading personal image",
+        "experience": "An error occurred while loading experience data",
+        "education": "An error occurred while loading education data",
+        "tech_skills": "An error occurred while loading technical skills data",
+        "soft_skills": "An error occurred while loading soft skills data",
+        "project": "An error occurred while loading project data",
+        "mail": "An error occurred while sending the email",
+        "courses": "An error occurred while loading course data",
+        "title_404": "Page not found",
+        "image_404_alt": "404 image",
+        "error_saving": "An error occurred while saving the error information",
+        "rebuild": "An error occurred while rebuilding the page"
+    }
+}

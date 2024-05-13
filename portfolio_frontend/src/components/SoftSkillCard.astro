@@ -1,0 +1,46 @@
+---
+import lang from "../i18n/languageService";
+import { type SoftSkill } from '../types/soft_skill';
+import SoftSkillIcon from './icons/SoftSkill.astro';
+
+/**
+ * @type {SoftSkill} soft_skill - The soft skill to display
+
+ */
+interface Props {
+	soft_skill: SoftSkill;
+}
+
+const { soft_skill: softSkill } = Astro.props as Props;
+---
+
+<article>
+    <SoftSkillIcon class_name="soft_skill_icon" title={lang.skills.soft_skill_icon}/>
+	<h4>{softSkill.name}</h4>
+</article>
+
+<style>
+    article {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+        gap: 0.5vw;
+    }
+    h4 {
+        color: #FFFFFF;
+        margin: 0;
+        font-weight: 350;
+    }
+</style>
+
+<style is:global>
+    .soft_skill_icon {
+        width: 15px;
+        height: 15px;
+        padding: 3px;
+        background-color: #1367b8;
+        color: black;
+        border-radius: 2px;
+    }
+</style>

@@ -1,0 +1,45 @@
+---
+import lang from "../i18n/languageService";
+import Layout from '../layouts/Layout.astro';
+import ExperienceCard from '../components/ExperienceCard.astro';
+import { getExperiences } from '../services/experience';
+
+const experiences = await getExperiences();
+---
+
+<Layout title={lang.experience.title}>
+	<main>
+		<h1>{lang.experience.experience}</h1>
+		<div>
+			{
+				experiences.map((experience) => (
+					<ExperienceCard experience={experience} />
+				))
+			}
+		</div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: 0 26vw auto 26vw;
+	}
+
+	h1 {
+		color: #FFFFFF;
+		margin-top: 8vh;
+		font-size: 2.2rem;
+	}
+
+	@media only screen and (max-width: 1200px) {
+		main {
+			margin: 0 16vw auto 16vw;
+		}
+	}
+
+	@media only screen and (max-width: 768px) {
+		main {
+			margin: 0 7vw auto 7vw;
+		}
+	}
+</style>

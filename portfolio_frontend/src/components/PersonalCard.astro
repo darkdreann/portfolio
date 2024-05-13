@@ -1,0 +1,129 @@
+---
+import lang from "../i18n/languageService";
+import { type PersonalData } from '../types/personal_data';
+import { ButtonColor } from '../enums/button_color';
+// @ts-ignore
+import { Image } from 'astro:assets';
+import Button from '../components/Button.astro';
+import { RESOURCE_URL, GITHUB_URL, LINKEDIN_URL } from '../utils/constants';
+
+/**
+ * @param {PersonalData} data - Personal data of the user
+ */
+interface Props {
+	data: PersonalData;
+}
+
+const { data } = Astro.props as Props;
+
+// format image and links
+const imgURL: string = `${RESOURCE_URL}/${data.avatar}`;
+const cvLink: string = `${RESOURCE_URL}/${data.cv}`;
+const linkedinLink: string = `${LINKEDIN_URL}/${data.linkedin}`;
+const githubLink: string = `${GITHUB_URL}/${data.github}`;
+
+// split about me text into paragraphs
+const about = data.about_me.split('\n');
+---
+
+<div>
+    <Image 
+        src={imgURL} 
+        alt={lang.personal_data.img_alt}
+        transition:name="avatar"
+        loading="eager"
+        width="217"
+        height="232"
+    />
+    <h1>{data.name}</h1>
+    <h2 class="no_bold">{data.profession}</h2>
+    <h2 class="no_bold">{data.email}</h2>
+    <div class="buttons">
+        <Button text="Linkedin" link={linkedinLink} color={ButtonColor.Dark}/>
+        <Button text="GitHub" link={githubLink} color={ButtonColor.Light}/>
+        <Button text={lang.personal_data.cv_button} link={cvLink} color={ButtonColor.Dark}/>
+    </div>
+    <div class="about">
+        <h2 class="about_title">{lang.personal_data.about_me}</h2>
+        <div class="about_text">
+            {
+                about.map((paragraph: string) => {
+                    return <h3 class="no_bold">{paragraph}</h3>
+                })
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    
+    img {
+        border-radius: 15px;
+        object-fit: cover;
+    }
+
+    div {
+        margin-top: 6vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
+
+    h1{
+        color: #FFFFFF;
+        margin: 0;
+        margin-top: 2vh;
+    }
+
+    h2{
+        color: #94ADC7;
+        margin: 0;
+    }
+    
+    h3 {
+        color: #FFFFFF;
+        max-width: 1200px;
+        margin: 0;
+        text-wrap: pretty;
+    }
+
+    .no_bold {
+        font-weight: 350;
+    }
+
+    .about {
+        width: 100%;
+        margin: 6vh 6vw auto 6vw;
+    }
+
+    @media only screen and (max-width: 1400px) {
+		.about {
+			width: 80%;
+		}
+	}
+
+    .about_title {
+        width: 100%;
+        max-width: 1200px;
+        text-align: start;
+        color: #FFFFFF;
+    }
+
+    .about_text {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2vh;
+        gap: 1vh;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 1vw;
+        margin-top: 2vh;
+    }
+
+</style>
+
+

@@ -1,0 +1,76 @@
+---
+import lang from "../i18n/languageService";
+import Layout from '../layouts/Layout.astro';
+import TechnicalSkillCard from '../components/TechnicalSkillCard.astro';
+import SoftSkillCard from '../components/SoftSkillCard.astro';
+import { getTechnicalSkills } from '../services/technical_skills';
+import { getSoftSkills } from '../services/soft_skills';
+
+const technicalSkills = await getTechnicalSkills();
+const softSkills = await getSoftSkills();
+---
+
+<Layout title={lang.skills.title}>
+	<main>
+		<h1>{lang.skills.technical_skills}</h1>
+		<div>
+			{
+                technicalSkills.map((skill) => (
+                    <TechnicalSkillCard technical_skill={skill} />
+                ))
+			}
+		</div>
+        <h2>{lang.skills.soft_skills}</h2>
+        <div class="soft">
+            {
+                softSkills.map((skill) => (
+                    <SoftSkillCard soft_skill={skill} />
+                ))
+            }
+        </div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: 0 20vw auto 20vw;
+
+	}
+
+    div {
+        margin: auto 1vw auto 1vw;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 10px;
+    }
+
+    .soft {
+        margin: auto 3.5vw auto 3.5vw;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 30px;
+    }
+
+	h1 {
+		color: #FFFFFF;
+		margin-top: 8vh;
+		font-size: 2.5rem;
+	}
+
+    h2 {
+		color: #FFFFFF;
+		margin-top: 6vh;
+		font-size: 1.8rem;
+    }
+
+    @media only screen and (max-width: 1200px) {
+		main {
+			margin: 0 12vw auto 12vw;
+		}
+	}
+
+	@media only screen and (max-width: 768px) {
+		main {
+			margin: 0 5vw auto 5vw;
+		}
+	}
+</style>

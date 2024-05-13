@@ -1,0 +1,27 @@
+---
+
+/**
+ * @param svg_string - The SVG string to render
+ * @param width - The width of the SVG
+ * @param height - The height of the SVG
+ */
+interface Props {
+	svg_string: string;
+    width: string;
+    height: string;
+}
+
+const { svg_string, width, height } = Astro.props as Props;
+
+// Create the SVG string with the width and height styles
+const svg = `
+    ${svg_string}
+    <style>
+        svg {
+            width: ${width};
+            height: ${height};
+        }
+    </style>
+`;
+---
+<Fragment set:html={svg} />
