@@ -32,9 +32,9 @@ To use this portfolio, it is necessary to create four configuration files (.env)
 
 Once you have created the environment files, simply run the following command to create Docker containers:
 
-    ```bash
-        docker-compose up -d --build
-    ```
+```bash
+    docker-compose up -d --build
+```
 
 ## License
 
